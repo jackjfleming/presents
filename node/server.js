@@ -20,11 +20,11 @@ function start(route, handle){
 		
 		request.addListener("end", function() {
 			route(handle, pathname, response, postData);
-		})
+		});
 	}
 
 	http.createServer(onRequest).listen(process.env.C9_PORT);
-	console.log("Server has started.");
+	console.log("Server has started on port: " + process.env.C9_PORT);
 }
 
 exports.start = start;

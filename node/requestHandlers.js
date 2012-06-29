@@ -4,12 +4,12 @@ var	fs = require("fs");
 function start(response, postData){
 	console.log("Request handler 'start' was called.");
 	
-	fs.readFile("./start.html",function(err,data){
+	fs.readFile("../client/start.html",function(err,data){
 		if(err)
 			throw err;		
 		
 		response.writeHead(200,{"Content-Type":"text/html"});
-		response.write(data)
+		response.write(data);
 		response.end();
 	});
 }
