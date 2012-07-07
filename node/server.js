@@ -23,8 +23,8 @@ function start(route, handle){
 		});
 	}
 
-	http.createServer(onRequest).listen(process.env.C9_PORT);
-	console.log("Server has started on port: " + process.env.C9_PORT);
+	http.createServer(onRequest).listen(process.env.PORT);
+	console.log("Server has started on port: " + process.env.PORT);
 }
 
 exports.start = start;
