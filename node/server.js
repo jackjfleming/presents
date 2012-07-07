@@ -24,7 +24,7 @@ function start (route, handle) {
 	
 	connect()
 		.use(connect.logger('dev'))
-		.use(connect.static('../client'))
+		.use(connect.static('public'))
 		.use(onRequest)
 		.listen(process.env.PORT);
 	console.log("Server has started on port: " + process.env.PORT);
