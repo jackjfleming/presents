@@ -1,6 +1,5 @@
-var http = require("http"),
-    connect = require('connect'),
-    url = require("url");
+var url = require("url"),
+    connect = require('connect');
 
 function start(route, handle){
 	function onRequest(request,response) {
@@ -24,7 +23,7 @@ function start(route, handle){
 		});
 	}
     
-    var app = connect()
+    connect()
         .use(connect.static('./client'))
         .use(onRequest)
         .listen(process.env.PORT);
