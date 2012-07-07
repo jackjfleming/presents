@@ -1,5 +1,6 @@
-var http = require("http");
-var url = require("url");
+var http = require("http"),
+    connect = require('connect'),
+    url = require("url");
 
 function start(route, handle){
 	function onRequest(request,response) {
@@ -22,8 +23,11 @@ function start(route, handle){
 			route(handle, pathname, response, postData);
 		});
 	}
-
-	http.createServer(onRequest).listen(process.env.PORT);
+    
+    var app = connect()
+        .use(connect.static('./client'))
+        .use(onRequest)
+        .listen(process.env.PORT);
 	console.log("Server has started on port: " + process.env.PORT);
 }
 
